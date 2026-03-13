@@ -1,6 +1,7 @@
 @main def main(): Unit =
   // perceptronExample()
-  adalineExample()
+  // adalineExample()
+  adalineSGDExample()
 
 def perceptronExample() = {
   val (x, y) = IrisLoader.loadData(
@@ -28,6 +29,20 @@ def adalineExample() = {
   val y = yInit.map(v => v.toDouble)
 
   val (adaline, errors) = AdalineGD.fit(x, y, 0.0001, 15, 1)
+
+  for (iteration <- errors.indices) {
+    println(s"Iteration ${iteration + 1}: Fehler = ${errors(iteration)}")
+  }
+}
+
+def adalineSGDExample() = {
+  val (x, yInit) = IrisLoader.loadData(
+    "/home/ezpz/Nextcloud/ObsidianVault/Schule/Module/323 - Funktional programmieren/assignments/project/ml-classifiers/learningData/iris.csv"
+  )
+
+  val y = yInit.map(v => v.toDouble)
+
+  val (adaline, errors) = AdalineSGD.fit(x, y, 0.01, 15, 1);
 
   for (iteration <- errors.indices) {
     println(s"Iteration ${iteration + 1}: Fehler = ${errors(iteration)}")

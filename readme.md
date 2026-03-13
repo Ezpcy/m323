@@ -8,9 +8,9 @@ Für dieses Projekt werden binäre Machine Learning Klassifikatoren funktionell 
 
 ---
 
-## Perceptron
+## 1. Perceptron
 
-[Perceptron](assignments/project/ml-classifiers/src/main/scala/algos/Perceptron.scala)
+[Perceptron](assignments/project/ml-classifiers/src/main/scala/classifiers/Perceptron.scala)
 
 Der Perceptron-Algorithmus ist ein einfacher Lernalgorithmus, der auf der Funktionsweise biologischer Neuronen basiert. 
 
@@ -18,14 +18,48 @@ Es wird eine Entscheidungsfunktion definiert, σ(z), die eine lineare Kombinatio
 
 Ist der Netto-Input eines bestimmten Beispiels, $x^{(i)}$, grösser als ein vordefinierter Schwellwert, $\theta$, wird die Klasse 1 geschätzt, andernfalls Klasse 0.
 
+![](./x_ressources/2026-03-13/image/readme-1773396895544.png)
+
+_Abbildung 1.1: Falsch Vorhersagen je Iteration im Perceptron Algorithmus_
+
+
+![](./x_ressources/2026-03-13/image/readme-1773396909172.png)
+
+_Abbildung 1.2: Resultierende Entscheidungs Region durch den Perceptron Algorithmus_
+
+
 ---
 
-## Adaline
+## 2. Adaline
 
-[AdalineGD](assignments/project/ml-classifiers/src/main/scala/algos/AdalineGD.scala)
+[AdalineGD](assignments/project/ml-classifiers/src/main/scala/classifiers/AdalineGD.scala)
 
-Der **Adaline (ADaptive LInead NEuron)** basiert auf dem [Perceptron](#Perceptron) Algorithmus und illustriert Konzepte der Definition und kontinuierte Minimierung einer Verlust Funktion. 
+Der **Adaline (ADaptive LInead NEuron)** basiert auf dem [Perceptron](#Perceptron) Algorithmus und illustriert Konzepte der Definition und kontinuierter Minimierung einer Verlust Funktion. 
 
+
+![](./x_ressources/2026-03-13/image/readme-1773396865166.png)
+
+_Abbildung 2.1: Kontinuierliche Minimierung der Fehler im Adaline Algorithmus_
+
+![](./x_ressources/2026-03-13/image/readme-1773396854975.png)
+
+_Abbildung 2.2: Resultierende Entscheidungs Region durch den Adaline Algorithmus_
+
+---
+
+## 3. AdalineSGD
+
+[AdalineSGD](assignments/project/ml-classifiers/src/main/scala/classifiers/AdalineSGD.scala)
+
+Beim **Stochastic Gradient Descent (SGD)** werden die Gewichte nicht erst am Ende einer Epoche für alle Datenpunkte auf einmal angepasst, sondern **nach jedem einzelnen Datenpunkt** (also _online_). Ausserdem werden die Daten vor jeder Epoche gemischt (`shuffle`), um Zyklen zu vermeiden.
+
+![](./x_ressources/2026-03-13/image/readme-1773396830035.png)
+
+_Abbildung 3.1: Fehler Verlauf im AdalineSGD Algorithmus_
+
+![](./x_ressources/2026-03-13/image/readme-1773396814730.png)
+
+_Abbildung 3.2: Resultierende Entscheidungs Region durch den AdalineSGD Algorithmus_
 
 ---
 
